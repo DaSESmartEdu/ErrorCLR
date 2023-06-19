@@ -309,7 +309,7 @@ def complex_mask(error_line, correct_line, type1, type2, mask_cnt, target_line=N
         return mask_replace(error_line, correct_line, mask_cnt, literal_list, cliteral_list, target_line)
     if type2 == "VariableMisuse":
         return mask_replace(error_line, correct_line, mask_cnt, variable_list, cvariable_list, target_line)
-    if type2 == "DataTypeMisuse":
+    if type2 == "DataTypeMisuse" or type2 == "ReturnTypeMisuse" or type2 == "ParameterTypeMisuse":
         return mask_replace(error_line, correct_line, mask_cnt, type_list, ctype_list, target_line)
     if type2 == "FunctionMisuse":
         return mask_replace(error_line, correct_line, mask_cnt, func_list, cfunc_list, target_line)
@@ -321,10 +321,10 @@ def create_mask(error_line, correct_line, type1, type2, mask_cnt, target_line=No
     if type2 in ["WrongIndex", "WrongArraySize"]:
         return array_related(error_line, correct_line, mask_cnt, target_line)
 
-    if type2 in ["FormatStringError"]:
+    if type2 in ["FormatStringMisuse"]:
         return format_related(error_line, correct_line, mask_cnt, target_line)
 
-    if type2 in ["ControlMisuse", "FunctionMissing"] or type2 == "MultipleErrors":
+    if type2 in ["ControlMisuse", "FunctionMissing"] or type2 == "Undefined":
         return fullLine_mask(error_line, correct_line, mask_cnt, target_line)
     
     if type2 in ["ConditionMissing"]:
