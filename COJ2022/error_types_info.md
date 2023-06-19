@@ -1,22 +1,21 @@
 # Error rules of COJ2022
 
-We totally identify 4 types of semantic errors covering 15 sub-types in the programs. For each type, we select the most common sub-type errors and classify them. Some of the sub-type errors appears in multiple types due to the frequency and error habits of students.
+We totally identify 4 types of semantic errors covering 16 sub-types in the programs. For each type, we select the most common sub-type errors and classify them. Some of the sub-type errors appears in multiple types due to the frequency and error habits of students.
 
 ### Control
 
 **errors pertaining to a control statement**
 
 - ControlMisuse
-  - Description: Misuse of control actions (while / for/ if / break / continue / else / else if / return)
+  - Description: Misuse of control actions. We focus on the error between ``break`` and ``continue`` and loop(while/for) and condition(if / switch)
   - Examples
     - **BEFORE:** ``break;``    **AFTER:** ``continue;``
     - **BEFORE:** ``if(m > n)``    **AFTER:** ``while(m > n)``
-    - **BEFORE:** ``else printf(" ")``    **AFTER:** `` ``
 - ConditionMissing
-  - Description: Missing of the control conditions and control statements
+  - Description: Missing of the control conditions or loop conditions
   - Examples
     - **BEFORE:** ``if(a > 0)``    **AFTER:** ``if(a > 0 && b != 1)``
-    - **BEFORE:** `` ``    **AFTER:** ``return 0;``
+    - **BEFORE:** `` ``    **AFTER:** ``else return 0;``
     - **BEFORE:** ``else putchar(' ')``    **AFTER:** ``else if(j < m-d) putchar(' ')``
 
 - WrongIndex
@@ -29,14 +28,14 @@ We totally identify 4 types of semantic errors covering 15 sub-types in the prog
   - Examples
     - **BEFORE:** ``if(i<n)``    **AFTER:** ``if(i<=n)``
 - LiteralMisuse
-  - Description: Misuse of the literals (number / string / char / constant)
+  - Description: Misuse of the literals (number / string / char / constant) to literals 
   - Examples
     - **BEFORE:** ``for(i = 0; i < 30; i++)``    **AFTER:** ``for(i = 1; i < 30; i++)``
     - **BEFORE:** ``return NULL;``    **AFTER:** ``return "";``
     - **BEFORE:** ``while((ch[i]=getchar())!='\n')``    **AFTER:** ``while((ch[i]=getchar())!=EOF)``
 
 - VariableMisuse
-  - Description: Misuse of the variables
+  - Description: Misuse of the variables to variables 
   - Examples
     - **BEFORE:** ``for(j = 0; j < n-1; j++)``    **AFTER:** ``for(j = 0; j < i-1; j++)``
 
@@ -57,20 +56,21 @@ We include input/output statement(printf / scanf / getchar / cin / ... ) into th
     - **BEFORE:** ``y = abs(x);``    **AFTER:** ``y = floor(x);``
     - **BEFORE:** ``system("pause";)``    **AFTER:** `` ``
     - **BEFORE:** ``printf("%.4f", fabs(ans))``    **AFTER:** ``printf("%.4f", ans)``
-
 - FunctionMissing
   - Description: Missing of the function calls
   - Examples
     - **BEFORE:** `` ``    **AFTER:** ``getchar();``
     - **BEFORE:** ``p = ps+pt;``    **AFTER:** `` p = round(ps+pt)``
     - **BEFORE:** ``printf("%.4f", fabs(ans))``    **AFTER:** ``printf("%.4f", ans)``
-
+- ReturnTypeMisuse
+  - Description:  Misuse of the type of return value in function declaration and calls
+  - Examples
+    - **BEFORE:** `` char func(int a);``    **AFTER:** ``char* func(int a);``
 - ParameterTypeMisuse
   - Description:  Misuse of the type of parameter in function declaration and calls
   - Examples
     - **BEFORE:** `` scanf("%d", a);``    **AFTER:** ``scanf("%d", &a);``
     - **BEFORE:** ``if(strcmp(*t[i],*t[m])>=0)``    **AFTER:** `` if(strcmp(t[i],t[m])>=0)``
-
 - FormatStringMisuse
   - Description:  Misuse of the format strings in input/output statements
   - Examples
@@ -121,7 +121,7 @@ We include input/output statement(printf / scanf / getchar / cin / ... ) into th
   - Examples
     - **BEFORE:** ``a += 1;``    **AFTER:** ``a -= 1``
 - LiteralMisuse
-  - Description: Misuse of the literals (number / string / char / constant)
+  - Description: Misuse of the literals (number / string / char / constant) except the precision problem
   - Examples
     - **BEFORE:** ``ans = ans * 10 + s[i];``    **AFTER:** ````ans = ans * 16 + s[i];````
 - VariableMisuse
