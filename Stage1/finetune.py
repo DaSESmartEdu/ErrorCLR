@@ -54,13 +54,13 @@ node_content_dim = 100
 node_state_dim = 128
 graph_state_dim = 128
 similarity_name = 'cosine'
-learning_rate = 1e-4
+learning_rate = 1e-3
 weight_decay = 1e-5
 graph_vec_regularizer_weight = 1e-6
 clip_value = 1e-6
 
 error_type_num_1 = 4+1
-error_type_num_2 = 14+1
+error_type_num_2 = 16+1
 
 model = ErrorPredictionModel(node_type_num, node_type_dim, node_content_dim, node_state_dim,
                          graph_state_dim, similarity_name, device, error_type_num_1, error_type_num_2)
