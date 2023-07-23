@@ -3,7 +3,21 @@
 In this work, we present a new dataset COJ2022 of student buggy programs and propose a two-stage model ErrorCLR for semantic error classification, localization and repair. COJ2022 can support the development of methods for all the three tasks, thereby enriching the ways of automated feedback for programming training.
 
 **If you find this work useful for your research, please consider citing our paper.**
-
+```@inproceedings{HanWL23,
+  author       = {Siqi Han and
+                  Yu Wang and
+                  Xuesong Lu},
+  title        = {ErrorCLR: Semantic Error Classification, Localization and Repair for
+                  Introductory Programming Assignments},
+  booktitle    = {Proceedings of the 46th International {ACM} {SIGIR} Conference on
+                  Research and Development in Information Retrieval, {SIGIR} 2023, Taipei,
+                  Taiwan, July 23-27, 2023},
+  pages        = {1345--1354},
+  year         = {2023},
+  url          = {https://doi.org/10.1145/3539618.3591680},
+  doi          = {10.1145/3539618.3591680}
+}
+```
 ## COJ2022 Dataset
 
 Our dataset includes the following files:
